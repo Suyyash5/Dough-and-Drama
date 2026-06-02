@@ -23,7 +23,7 @@ a {
     height: 100vh;
     /* YOUR EXACT LOCAL IMAGE PATH IS HERE */
     background:
-    url('../aca94be473f5e877eaa0f8d020783b942eee00b7.jpg') center/cover no-repeat;
+    url('./aca94be473f5e877eaa0f8d020783b942eee00b7.jpg') center/cover no-repeat;
 
     display: flex;
     flex-direction: column;

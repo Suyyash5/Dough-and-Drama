@@ -763,7 +763,7 @@ body{
     width: 100%;
     height: 75px;
     background: #000000;
-    z-index: 10;
+    z-index: 15;
     display: flex;
     align-items: center;
 }
@@ -773,9 +773,9 @@ body{
     max-width: 90%;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 0 40px;
+    padding: 0;
 }
 
 .table-title {
@@ -785,26 +785,66 @@ body{
     font-weight: 500;
     letter-spacing: 2px;
     margin: 0;
+    text-align: center;
 }
 
-.red-flag-label {
-    font-family: "Dancing Script", "Great Vibes", cursive;
+.slide-title-floating {
+    position: absolute;
+    top: 50%;
+    left: 4.74vw;
+    width: 22.708vw;
+    height: 4.444vh;
+    font-family: "Cormorant Infant", serif;
+    font-weight: 500;
+    font-size: 3.704vh;
     color: #ffffff;
-    font-size: 2.4rem;
     margin: 0;
+    padding: 0;
+    z-index: 16;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    letter-spacing: 0;
+    text-shadow: none;
+    transform: translateY(-50%) rotate(0deg);
+    opacity: 1;
+}
+
+/* Floating Script Labels */
+.floating-script-label {
+    position: absolute;
+    font-family: "Dancing Promise", "Dancing Script", "Great Vibes", cursive;
+    color: #ffffff;
+    font-size: 2.6rem;
+    font-weight: 400;
+    z-index: 15;
+    pointer-events: none;
     letter-spacing: 1px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.label-redflag {
+    top: 45.5vh;
+    left: 74vw;
+}
+
+.label-latenight {
+    top: 41.5vh;
+    left: 68vw;
+    color: #ffffff;
 }
 
 /* Stamp logo */
 .menu-love-stamp {
     position: absolute;
-    top: 5vh;
-    right: 5vw;
-    width: 9vw;
-    max-width: 120px;
+    top: 0vh;
+    right: 24.479vw;
+    width: 8.073vw;
     height: auto;
-    transform: rotate(18deg);
+    transform: rotate(18.84deg);
     z-index: 8;
+    opacity: 1;
     filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.4));
 }
 
@@ -823,44 +863,57 @@ body{
 
 /* Truffle Pizza (Top Left) */
 .pg-truffle {
-    top: 1.5vh;
-    left: 3vw;
+    position: absolute;
+    top: -7.407vh;
+    left: -4.531vw;
+    width: 29.375vw;
+    height: 78.333vh;
     z-index: 8;
 }
 
 .pg-truffle .pizza-img {
-    width: 22vw;
-    max-width: 320px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: rotate(270deg);
 }
 
 /* Red Flag Pizza (Center) */
 .pg-redflag {
-    top: 50%;
-    left: 48%;
-    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 16.742vh;
+    left: 15.313vw;
+    width: 52.552vw;
+    height: 63.37vh;
     z-index: 12;
+    transform: none;
 }
 
 .pg-redflag .pizza-img {
-    width: 25vw;
-    max-width: 380px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     filter: drop-shadow(10px 20px 35px rgba(0,0,0,0.35));
 }
 
 /* Love Pizza (Bottom Left) */
 .pg-love {
-    bottom: -6vh;
-    left: -4vw;
+    position: absolute;
+    top: 57.518vh;
+    left: -1.615vw;
+    width: 27.969vw;
+    height: 37.287vh;
     z-index: 8;
 }
 
 .pg-love .pizza-img {
-    width: 23vw;
-    max-width: 350px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
-/* Ingredients */
-.pizza-group img:not(.pizza-img) {
+/* Ingredients (Absolute to slide container) */
+.menu-slide img:not(.pizza-img):not(.menu-love-stamp) {
     position: absolute;
     height: auto;
     filter: drop-shadow(5px 5px 12px rgba(0,0,0,0.2));
@@ -868,44 +921,110 @@ body{
 
 /* Top left pizza ingredients */
 .ing-green-pepper {
-    left: -4vw;
-    top: 12%;
-    width: 7vw;
-    max-width: 95px;
-    z-index: 7;
+    top: 5.0vh;
+    left: 22.292vw;
+    width: 8.739vw;
+    z-index: 9;
+    transform: rotate(-168.3deg);
+    animation: float-slow 4s ease-in-out infinite alternate;
 }
 
 .ing-red-chilli {
-    right: -2vw;
-    bottom: 15%;
-    width: 5vw;
-    max-width: 70px;
+    top: 14.722vh;
+    left: 30.208vw;
+    width: 4.792vw;
     z-index: 9;
+    animation: float-slow 5s ease-in-out infinite alternate-reverse;
 }
 
-/* Center pizza ingredients */
-.ing-garlic {
-    right: -3vw;
-    bottom: 6%;
-    width: 7.5vw;
-    max-width: 110px;
+.ing-peppercorns {
+    top: 8.796vh;
+    left: 32.24vw;
+    width: 8.177vw;
+    z-index: 9;
+    animation: float-slow 6s ease-in-out infinite alternate;
+}
+
+/* Center pizza ingredients (Red Flag) */
+.ing-pepperoni-redflag {
+    left: -3vw;
+    top: 15%;
+    width: 5vw;
+    max-width: 75px;
     z-index: 13;
+    animation: float-slow 4.5s ease-in-out infinite alternate-reverse;
 }
 
-.ing-tomatoes {
-    right: 2vw;
-    bottom: -4vh;
-    width: 6vw;
-    max-width: 85px;
-    z-index: 13;
-}
-
-/* Bottom left pizza ingredients */
-.ing-cheese {
+.ing-basil-redflag {
     right: -2vw;
-    bottom: 12vh;
-    width: 7vw;
-    max-width: 100px;
+    top: 20%;
+    width: 4vw;
+    max-width: 55px;
+    z-index: 13;
+    animation: float-slow 3.8s ease-in-out infinite alternate;
+}
+
+/* Bottom left pizza ingredients (Margherita trail) */
+.ing-cheese {
+    top: 81.759vh;
+    left: 21.823vw;
+    width: 6.661vw;
+    z-index: 9;
+    animation: float-slow 5.5s ease-in-out infinite alternate;
+}
+
+.ing-basil-trail {
+    top: 85.278vh;
+    left: 21.042vw;
+    width: 5.99vw;
+    z-index: 9;
+    animation: float-slow 4.8s ease-in-out infinite alternate-reverse;
+}
+
+.ing-burrata-trail {
+    top: 83.981vh;
+    left: 25.156vw;
+    width: 9.115vw;
+    z-index: 9;
+    animation: float-slow 5.2s ease-in-out infinite alternate;
+}
+
+/* Bottom Right Corner Floating Ingredients */
+.ing-garlic-br {
+    top: 55.926vh;
+    left: 48.385vw;
+    width: 15.243vw;
+    z-index: 9;
+    filter: drop-shadow(5px 5px 12px rgba(0,0,0,0.2));
+    animation: float-slow 5s ease-in-out infinite alternate-reverse;
+}
+
+.ing-tomatoes-br {
+    top: 57.685vh;
+    left: 56.563vw;
+    width: 8.125vw;
+    z-index: 9;
+    filter: drop-shadow(5px 5px 12px rgba(0,0,0,0.25));
+    animation: float-slow 4s ease-in-out infinite alternate;
+}
+
+@keyframes float-slow {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+/* Curvy arrow SVG pointer */
+.pointer-curve-svg {
+    position: absolute;
+    top: 49vh;
+    left: 59vw;
+    width: 16vw;
+    height: 7vh;
+    pointer-events: none;
     z-index: 9;
 }
 
@@ -921,10 +1040,11 @@ body{
 }
 
 .pointer-line {
-    height: 1px;
-    background: rgba(255, 255, 255, 0.4);
+    height: 1.5px;
+    background: #ffffff;
     position: absolute;
     z-index: 9;
+    opacity: 0.85;
 }
 
 /* Dots alignment relative to pizza group */
@@ -940,8 +1060,8 @@ body{
 }
 
 .pd-redflag {
-    top: 62%;
-    right: 36%;
+    top: 58%;
+    right: 15%;
 }
 
 .pd-love {
@@ -958,12 +1078,12 @@ body{
 /* Curvy arrow SVG pointer */
 .pointer-curve-svg {
     position: absolute;
-    top: 46.5vh;
-    left: 45.5vw;
-    width: 13vw;
-    height: 13vh;
+    top: 49vh;
+    left: 54vw;
+    width: 20.5vw;
+    height: 8vh;
     pointer-events: none;
-    z-index: 15;
+    z-index: 9;
 }
 
 /* Text Groups (Right Side) */
@@ -974,19 +1094,20 @@ body{
 }
 
 .text-group h3 {
-    font-family: "Dancing Script", "Great Vibes", cursive;
-    font-size: 2.8rem;
-    color: #ffd6d9;
-    margin-bottom: 6px;
+    font-family: "Dancing Promise", "Dancing Script", "Great Vibes", cursive;
+    font-size: 3.2rem;
+    color: #ffffff;
+    margin-bottom: 8px;
     letter-spacing: 0.5px;
+    font-weight: 400;
 }
 
 .text-group .desc {
     font-family: "Cormorant Infant", serif;
-    font-size: 1.15rem;
-    line-height: 1.4;
-    color: #e5c5c8;
-    margin-bottom: 10px;
+    font-size: 1.25rem;
+    line-height: 1.45;
+    color: #ffffff;
+    margin-bottom: 12px;
     font-weight: 400;
 }
 
@@ -1010,10 +1131,76 @@ body{
 }
 
 .tg-redflag {
-    top: 57.5vh;
+    top: 50%;
+    transform: translateY(-50%);
     right: 8vw;
     width: 33vw;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     text-align: right;
+}
+
+.tg-redflag .price {
+    margin: 0;
+}
+
+.tg-redflag .desc {
+    margin: 0;
+}
+
+/* Slide 1 Red Flag Text absolute positioning */
+.menu-slide[data-slide="1"] .tg-redflag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: none;
+    right: auto;
+    pointer-events: none;
+    display: block;
+}
+
+.menu-slide[data-slide="1"] .tg-redflag .price {
+    position: absolute;
+    top: 28.796vh;
+    left: 54.792vw;
+    width: 18.594vw;
+    height: 2.685vh;
+    font-family: "Cormorant Infant", serif;
+    font-weight: 600;
+    font-size: 2.222vh;
+    line-height: 1;
+    letter-spacing: 0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    pointer-events: auto;
+}
+
+.menu-slide[data-slide="1"] .tg-redflag .desc {
+    position: absolute;
+    top: 32.685vh;
+    left: 61.875vw;
+    width: 11.51vw;
+    height: 6.667vh;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 500;
+    font-size: 1.852vh;
+    line-height: 1;
+    letter-spacing: 0;
+    text-align: right;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: #ffffff;
+    pointer-events: auto;
 }
 
 .tg-love {
@@ -1137,17 +1324,23 @@ body{
         margin: 0 auto;
     }
     
-    .ing-green-pepper, .ing-red-chilli, .ing-garlic, .ing-tomatoes, .ing-cheese {
+    .ing-green-pepper, .ing-red-chilli, .ing-peppercorns,
+    .ing-pepperoni-redflag, .ing-basil-redflag,
+    .ing-cheese, .ing-basil-trail, .ing-burrata-trail {
         width: 50px !important;
     }
     
     .ing-green-pepper { left: 10%; top: 5%; }
     .ing-red-chilli { right: 10%; bottom: 5%; }
-    .ing-garlic { right: 5%; bottom: 0%; }
-    .ing-tomatoes { left: 5%; bottom: -10px; }
+    .ing-peppercorns { right: 5%; top: 15%; }
+    .ing-pepperoni-redflag { left: 5%; top: 10%; }
+    .ing-basil-redflag { right: 5%; bottom: 10%; }
     .ing-cheese { right: 5%; bottom: 10%; }
+    .ing-basil-trail { left: 5%; top: 5%; }
+    .ing-burrata-trail { right: 12%; top: 0%; }
     
-    .pointer-dot, .pointer-line, .pointer-curve-svg {
+    .pointer-dot, .pointer-line, .pointer-curve-svg,
+    .floating-script-label, .bottom-right-ingredients {
         display: none !important;
     }
     
@@ -1170,57 +1363,252 @@ body{
     .menu-slider-dots {
         bottom: 15px;
     }
+
+    .slide-title-floating, .slide-title-floating-slide2, .slide-title-floating-slide3 {
+        position: relative !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        font-size: 1.6rem !important;
+        text-align: center !important;
+        color: #ffffff !important;
+        margin: 15px auto !important;
+        display: block !important;
+        z-index: 16 !important;
+        justify-content: center !important;
+    }
+    
+    .menu-slide[data-slide="1"] .menu-divider-bar {
+        display: none !important;
+    }
+
+    .menu-slide[data-slide="1"] .tg-redflag {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        left: 0 !important;
+        top: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        text-align: center !important;
+        margin-bottom: 40px !important;
+        transform: none !important;
+    }
+
+    .menu-slide[data-slide="1"] .tg-redflag .price,
+    .menu-slide[data-slide="1"] .tg-redflag .desc {
+        position: relative !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        text-align: center !important;
+        justify-content: center !important;
+        margin: 5px 0 !important;
+        font-size: 1.15rem !important;
+    }
 }
 
 /* --- Slide 2 Specific Styles --- */
-.pg-redflag-slide2 {
-    top: 55%;
-    left: 60%;
-    transform: translate(-50%, -50%);
-    z-index: 12;
+.slide-title-floating-slide2 {
+    position: absolute;
+    top: 50%;
+    left: 4.74vw;
+    width: 21.719vw;
+    height: 4.444vh;
+    font-family: "Cormorant Infant", serif;
+    font-weight: 700;
+    font-size: 3.704vh;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    z-index: 16;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    letter-spacing: 0;
+    text-shadow: none;
+    transform: translateY(-50%) rotate(0deg);
+    opacity: 1;
 }
 
-.pg-redflag-slide2 .pizza-img {
-    width: 23vw;
-    max-width: 350px;
-    filter: drop-shadow(10px 15px 30px rgba(0, 0, 0, 0.4));
+.menu-slide[data-slide="2"] .label-latenight {
+    position: absolute;
+    top: 50%;
+    left: 53.281vw;
+    width: 17.552vw;
+    height: 4.167vh;
+    font-family: "Dancing Promise", "Dancing Script", "Great Vibes", cursive;
+    font-size: 2.963vh;
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    z-index: 16;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    letter-spacing: 0;
+    text-shadow: none;
+    transform: translateY(-50%) rotate(0deg);
+    opacity: 1;
+}
+
+.slide-title-floating-slide3 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+    left: 4.74vw;
+    width: 26.51vw;
+    height: 4.444vh;
+    font-family: "Cormorant Infant", serif;
+    font-weight: 700;
+    font-size: 3.704vh;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    z-index: 16;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    opacity: 1;
+}
+
+.menu-slide[data-slide="3"] .label-cheesepull {
+    position: absolute;
+    top: 50%;
+    left: 55.104vw;
+    width: 15.729vw;
+    height: 4.167vh;
+    font-family: "Dancing Promise", "Dancing Script", "Great Vibes", cursive;
+    font-size: 2.963vh;
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    z-index: 16;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    letter-spacing: 0;
+    text-shadow: none;
+    transform: translateY(-50%) rotate(0deg);
+    opacity: 1;
+}
+
+.menu-slide[data-slide="2"] .pg-truffle {
+    position: absolute;
+    top: -11.389vh;
+    left: 2.135vw;
+    width: 23.982vw;
+    height: 63.952vh;
+    z-index: 8;
+    transform: none;
+    opacity: 1;
+}
+
+.menu-slide[data-slide="2"] .pg-truffle .pizza-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: rotate(0deg);
+}
+
+.menu-slide[data-slide="2"] .pg-love-slide2 {
+    position: absolute;
+    top: 51.019vh;
+    left: -2.083vw;
+    width: 41.427vw;
+    height: 49.098vh;
+    z-index: 8;
+    transform: none;
+    opacity: 1;
+}
+
+.menu-slide[data-slide="2"] .pg-love-slide2 .pizza-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: rotate(0deg);
+}
+
+.menu-slide[data-slide="2"] .pg-redflag-slide2 {
+    position: absolute;
+    top: 44.815vh;
+    right: 0vw;
+    left: auto;
+    width: 17.396vw;
+    height: 55.463vh;
+    z-index: 12;
+    transform: none;
+    opacity: 1;
+}
+
+.menu-slide[data-slide="2"] .pg-redflag-slide2 .pizza-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: rotate(-90deg);
+}
+
+.ing-truffle-cheeses-s2 {
+    position: absolute;
+    top: 27.315vh;
+    left: 4.167vw;
+    width: 15.313vw;
+    height: 18.154vh;
+    z-index: 9;
+    transform: rotate(0deg);
+    opacity: 1;
+}
+
+.ing-truffle-bread-s2 {
+    position: absolute;
+    top: 26.296vh;
+    left: 12.917vw;
+    width: 14.688vw;
+    height: 17.407vh;
+    z-index: 9;
+    transform: rotate(0deg);
+    opacity: 1;
+}
+
+.ing-truffle-mozzarella-s2 {
+    position: absolute;
+    top: 31.852vh;
+    left: 24.115vw;
+    width: 11.615vw;
+    height: 13.765vh;
+    z-index: 9;
+    transform: rotate(0deg);
+    opacity: 1;
+}
+
+.ing-truffle-hardcheese-s2 {
+    position: absolute;
+    top: 28.056vh;
+    left: 24.74vw;
+    width: 6.331vw;
+    height: 10.648vh;
+    z-index: 9;
+    transform: rotate(0deg);
+    opacity: 1;
 }
 
 .pd-redflag-slide2 {
     top: 45%;
-    left: 45%;
+    left: 15%;
 }
 
 .pointer-curve-slide2 {
-    top: 47.5vh;
-    left: 58vw;
-    width: 18vw;
-    height: 12vh;
-}
-
-/* Slide 2 top-left overlays */
-.ing-truffle-bread {
     position: absolute;
-    right: -8vw;
-    bottom: -2vh;
-    width: 14vw;
-    z-index: 3;
-}
-
-.ing-truffle-cheeses {
-    position: absolute;
-    left: -2vw;
-    bottom: -4vh;
-    width: 11vw;
-    z-index: 4;
-}
-
-.ing-truffle-mozzarella {
-    position: absolute;
-    right: -13vw;
-    bottom: -5vh;
-    width: 9vw;
-    z-index: 4;
+    top: 50vh;
+    left: 70vw;
+    width: 15vw;
+    height: 19.7vh;
+    z-index: 15;
+    pointer-events: none;
 }
 
 /* Adjust dots and lines for Slide 2 to align with images */
@@ -1268,7 +1656,7 @@ body{
         margin: 0 auto;
     }
 
-    .ing-truffle-bread, .ing-truffle-cheeses, .ing-truffle-mozzarella {
+    .ing-truffle-bread-s2, .ing-truffle-cheeses-s2, .ing-truffle-mozzarella-s2, .ing-truffle-hardcheese-s2 {
         display: none !important;
     }
 }
@@ -1298,66 +1686,127 @@ body{
 /* Mozzarella board in top right corner */
 .menu-mozzarella-board {
     position: absolute;
-    top: 2vh;
-    right: 1vw;
-    width: 16vw;
-    max-width: 240px;
-    height: auto;
+    top: -0.278vh;
+    left: 62.969vw;
+    width: 12.031vw;
+    height: 14.256vh;
     z-index: 8;
+    transform: rotate(0deg);
+    opacity: 1;
     filter: drop-shadow(2px 4px 12px rgba(0, 0, 0, 0.3));
 }
 
 /* Slide 3 Overlays */
-.menu-slide[data-slide="3"] .ing-truffle-cheeses {
+.ing-truffle-cheeses-s3 {
     position: absolute;
-    left: -5vw;
-    bottom: -2vh;
-    width: 10vw;
-    max-width: 150px;
+    top: 27.315vh;
+    left: 4.167vw;
+    width: 12.708vw;
+    height: 15.066vh;
     z-index: 9;
+    transform: rotate(0deg);
+    opacity: 1;
 }
 
-.menu-slide[data-slide="3"] .ing-truffle-mozzarella {
+.ing-truffle-mozzarella-s3 {
     position: absolute;
-    right: -6vw;
-    bottom: -3vh;
-    width: 12vw;
-    max-width: 180px;
+    top: 30.833vh;
+    left: 28.125vw;
+    width: 11.615vw;
+    height: 13.765vh;
     z-index: 9;
+    transform: rotate(0deg);
+    opacity: 1;
 }
 
-.menu-slide[data-slide="3"] .blue-cheese-stamp {
+.ing-truffle-hardcheese-s3 {
     position: absolute;
-    top: -2.5vh;
-    left: -2.5vw;
-    width: 9vw;
-    max-width: 130px;
-    height: auto;
-    transform: rotate(-10deg);
+    top: 27.315vh;
+    left: 27.604vw;
+    width: 6.331vw;
+    height: 10.648vh;
+    z-index: 9;
+    transform: rotate(0deg);
+    opacity: 1;
+}
+
+.ing-garlic-s3 {
+    position: absolute;
+    top: 58.767vh;
+    left: 46.146vw;
+    width: 17.952vw;
+    height: 21.255vh;
+    z-index: 9;
+    transform: rotate(0deg);
+    opacity: 1;
+}
+
+.cheese-pie-s3 {
+    position: absolute;
+    top: 61.204vh;
+    left: 52.917vw;
+    width: 12.813vw;
+    height: 15.175vh;
+    z-index: 9;
+    transform: rotate(0deg);
+    opacity: 1;
+}
+
+.ing-butter-s3 {
+    position: absolute;
+    top: 81.759vh;
+    left: 21.042vw;
+    width: 6.979vw;
+    height: 12.407vh;
+    z-index: 9;
+    transform: rotate(0deg);
+    opacity: 1;
+}
+
+.ing-onions-s3 {
+    position: absolute;
+    top: 85.648vh;
+    left: 27.031vw;
+    width: 7.188vw;
+    height: 8.519vh;
+    z-index: 9;
+    transform: rotate(0deg);
+    opacity: 1;
+}
+
+.blue-cheese-stamp-s3 {
+    position: absolute;
+    top: -1.389vh;
+    left: 5.99vw;
+    width: 9.476vw;
+    height: 13.465vh;
     z-index: 10;
+    transform: rotate(15.56deg);
+    opacity: 1;
     filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.15));
 }
 
-.menu-slide[data-slide="3"] .cheese-pie {
-    position: absolute;
-    right: -4vw;
-    bottom: 2vh;
-    width: 8vw;
-    max-width: 120px;
-    z-index: 9;
-}
-
-.menu-slide[data-slide="3"] .onion-bowl {
-    position: absolute;
-    right: 3vw;
-    bottom: -2vh;
-    width: 7vw;
-    max-width: 105px;
-    z-index: 10;
-}
-
 /* Slide 3 Pizza Sizes and Rotations */
+.menu-slide[data-slide="3"] .pg-truffle-slide3 {
+    position: absolute;
+    top: -2.847vh;
+    left: 11.771vw;
+    width: 18.854vw;
+    height: 50.278vh;
+    z-index: 8;
+    transform: none;
+    opacity: 1;
+}
+
+.menu-slide[data-slide="3"] .pg-truffle-slide3 .pizza-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: rotate(0deg);
+}
+
 .pg-redflag-slide3 {
+    position: absolute;
     top: 52%;
     left: 54%;
     transform: translate(-50%, -50%) rotate(-4deg);
@@ -1370,15 +1819,22 @@ body{
     filter: drop-shadow(12px 18px 30px rgba(0,0,0,0.3));
 }
 
-.pg-love-slide3 {
-    bottom: -5vh;
-    left: -3vw;
+.menu-slide[data-slide="3"] .pg-love-slide3 {
+    position: absolute;
+    top: 54.722vh;
+    left: -5.208vw;
+    width: 40.573vw;
+    height: 48.082vh;
     z-index: 8;
+    transform: none;
+    opacity: 1;
 }
 
-.pg-love-slide3 .pizza-img {
-    width: 24vw;
-    max-width: 370px;
+.menu-slide[data-slide="3"] .pg-love-slide3 .pizza-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: rotate(0deg);
 }
 
 /* Slide 3 Dots and Lines */
@@ -1411,18 +1867,18 @@ body{
 }
 
 .menu-slide[data-slide="3"] .pd-redflag-slide3 {
-    top: 48%;
-    left: 82%;
+    top: 52.5%;
+    left: 50%;
     background: #ffffff;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 }
 
 .pointer-curve-slide3 {
     position: absolute;
-    top: 45vh;
+    top: 45.5vh;
     left: 54vw;
-    width: 17vw;
-    height: 14vh;
+    width: 9vw;
+    height: 8vh;
     pointer-events: none;
     z-index: 15;
 }
@@ -1434,12 +1890,16 @@ body{
         padding: 50px 20px 80px 20px;
     }
     
-    .menu-slide[data-slide="3"] .ing-truffle-cheeses,
-    .menu-slide[data-slide="3"] .ing-truffle-mozzarella,
-    .menu-slide[data-slide="3"] .blue-cheese-stamp,
-    .menu-slide[data-slide="3"] .cheese-pie,
-    .menu-slide[data-slide="3"] .onion-bowl,
-    .menu-mozzarella-board {
+    .menu-slide[data-slide="3"] .ing-truffle-cheeses-s3,
+    .menu-slide[data-slide="3"] .ing-truffle-mozzarella-s3,
+    .menu-slide[data-slide="3"] .ing-truffle-hardcheese-s3,
+    .menu-slide[data-slide="3"] .ing-garlic-s3,
+    .menu-slide[data-slide="3"] .cheese-pie-s3,
+    .menu-slide[data-slide="3"] .ing-butter-s3,
+    .menu-slide[data-slide="3"] .ing-onions-s3,
+    .menu-slide[data-slide="3"] .blue-cheese-stamp-s3,
+    .menu-slide[data-slide="3"] .menu-mozzarella-board,
+    .menu-slide[data-slide="3"] .pointer-curve-slide3 {
         display: none !important;
     }
     

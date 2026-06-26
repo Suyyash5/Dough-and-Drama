@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.gemini/
+*.bak
+*.bak.*
+*.png.bak
+*.webp.bak
+/scratch/
+/task.md
+/implementation_plan.md
+/walkthrough.md
